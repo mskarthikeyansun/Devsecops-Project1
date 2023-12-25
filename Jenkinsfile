@@ -52,7 +52,7 @@ stage('OWASP FS SCAN') {
 stage("Docker Build & Push"){
             steps{
                 script{
-                   withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
+                   withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker'){   
                        sh "docker build -t devsecops_ad ."
                        sh "docker tag devsecops_ad promo286/devsecops_ad:latest "
                        sh "docker push promo286/devsecops_ad:latest "
